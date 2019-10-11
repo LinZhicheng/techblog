@@ -5,19 +5,20 @@
   
 
   
-  <title>Hello World | David Lin&#39;s Blog</title>
+  <title>工作笔记-通过REST API创建Jenkins Credentials | David Lin&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="准备创建Credential的模板  创建文件credential.xml，内容如下：  123456789&amp;lt;com.cloudbees.plugins.credentials.impl. UsernamePasswordCredentialsImpl&amp;gt;    &amp;lt;scope&amp;gt;GLOBAL&amp;lt;/scope&amp;gt;    &amp;lt;id&amp;gt;my-credentials-">
+<meta name="keywords" content="工作笔记，Jenkins, credential, REST API">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://linzhicheng.github.io/2019/08/22/hello-world/index.html">
+<meta property="og:title" content="工作笔记-通过REST API创建Jenkins Credentials">
+<meta property="og:url" content="https://linzhicheng.github.io/2019/10/11/working-notes-create-jenkins-credentials-via-rest-api/index.html">
 <meta property="og:site_name" content="David Lin&#39;s Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="准备创建Credential的模板  创建文件credential.xml，内容如下：  123456789&amp;lt;com.cloudbees.plugins.credentials.impl. UsernamePasswordCredentialsImpl&amp;gt;    &amp;lt;scope&amp;gt;GLOBAL&amp;lt;/scope&amp;gt;    &amp;lt;id&amp;gt;my-credentials-">
 <meta property="og:locale" content="zh">
-<meta property="og:updated_time" content="2019-08-21T23:49:56.320Z">
+<meta property="og:updated_time" content="2019-10-11T16:01:19.265Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="工作笔记-通过REST API创建Jenkins Credentials">
+<meta name="twitter:description" content="准备创建Credential的模板  创建文件credential.xml，内容如下：  123456789&amp;lt;com.cloudbees.plugins.credentials.impl. UsernamePasswordCredentialsImpl&amp;gt;    &amp;lt;scope&amp;gt;GLOBAL&amp;lt;/scope&amp;gt;    &amp;lt;id&amp;gt;my-credentials-">
   
     <link rel="alternate" href="/techblog/atom.xml" title="David Lin&#39;s Blog" type="application/atom+xml">
   
@@ -64,10 +65,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-working-notes-create-jenkins-credentials-via-rest-api" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/techblog/2019/08/22/hello-world/" class="article-date">
-  <time datetime="2019-08-21T23:49:56.320Z" itemprop="datePublished">2019-08-22</time>
+    <a href="/techblog/2019/10/11/working-notes-create-jenkins-credentials-via-rest-api/" class="article-date">
+  <time datetime="2019-10-11T15:48:30.000Z" itemprop="datePublished">2019-10-11</time>
 </a>
     
   </div>
@@ -78,7 +79,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      工作笔记-通过REST API创建Jenkins Credentials
     </h1>
   
 
@@ -86,41 +87,52 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+        <ol>
+<li><p>准备创建Credential的模板</p>
+<p> 创建文件credential.xml，内容如下：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;com.cloudbees.plugins.credentials.impl. UsernamePasswordCredentialsImpl&gt;</span><br><span class="line">    &lt;scope&gt;GLOBAL&lt;/scope&gt;</span><br><span class="line">    &lt;id&gt;my-credentials-example-id&lt;/id&gt;</span><br><span class="line">    &lt;description&gt;This is an example from REST API&lt;/description&gt;</span><br><span class="line">    &lt;username&gt;admin&lt;/username&gt;</span><br><span class="line">    &lt;password&gt;</span><br><span class="line">        &lt;secret-redacted/&gt;</span><br><span class="line">    &lt;/password&gt;</span><br><span class="line">&lt;/com.cloudbees.plugins.credentials.impl. UsernamePasswordCredentialsImpl&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将模板通过POST请求发从到 <code>$JENKINS_URL/&lt;path to context&gt;/credentials/store/&lt;store id&gt;/domain/&lt;domain name&gt;/createCredentials</code> </p>
+</li>
+<li><p>准备更新Credential的模板</p>
+<p> 创建文件updateCredential.xml，内容如下：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl&gt;</span><br><span class="line">    &lt;scope&gt;GLOBAL&lt;/scope&gt;</span><br><span class="line">    &lt;id&gt;my-credentials-example-id&lt;/id&gt;</span><br><span class="line">    &lt;description&gt;This is an example from REST API (updated)&lt;/description&gt;</span><br><span class="line">    &lt;username&gt;admin&lt;/username&gt;</span><br><span class="line">    &lt;password&gt;newsupersecret&lt;/password&gt;</span><br><span class="line">&lt;/com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>发送POST请求更新Credential</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">curl -X POST \</span><br><span class="line">-u $JENKINS_USER:$JENKINS_PASSWORD_OR_API_TOKEN \</span><br><span class="line">-H &quot;Jenkins-Crumb:$&#123;JENKINS_CRUMB&#125;&quot; \</span><br><span class="line">-H &apos;content-type:application/xml&apos; \</span><br><span class="line">-d @updatedCredential.xml \</span><br><span class="line">&quot;$JENKINS_URL/&lt;path to context&gt;/credentials/store/&lt;store id&gt;/domain/&lt;domain name&gt;/credential/my-credentials-example-id/config.xml&quot;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+</li>
+</ol>
+<p>参考：<a href="https://support.cloudbees.com/hc/en-us/articles/360030526992-How-to-manage-Credentials-via-the-REST-API" target="_blank" rel="noopener">https://support.cloudbees.com/hc/en-us/articles/360030526992-How-to-manage-Credentials-via-the-REST-API</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://linzhicheng.github.io/2019/08/22/hello-world/" data-id="ck1mbwy7y0000qwta6vt5b0bw" class="article-share-link">Share</a>
+      <a data-url="https://linzhicheng.github.io/2019/10/11/working-notes-create-jenkins-credentials-via-rest-api/" data-id="ck1mbwy860002qwta8aj2ohdb" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/techblog/tags/工作笔记，Jenkins-credential-REST-API/">工作笔记，Jenkins, credential, REST API</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/techblog/2019/09/03/working-notes-linux-ip-addr/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/techblog/2019/10/12/working-notes-register-hana-ha-source-system/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          工作笔记-Linux系统配置虚拟IP
+          工作笔记-注册HANA高可用集群的源系统
         
       </div>
     </a>
   
+  
+    <a href="/techblog/2019/10/11/working-notes-docker-permission-denied/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">工作笔记-解决Linux下调用docker socket遇到permission denied的问题</div>
+    </a>
   
 </nav>
 

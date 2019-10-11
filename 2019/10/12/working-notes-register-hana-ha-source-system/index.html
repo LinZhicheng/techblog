@@ -5,15 +5,20 @@
   
 
   
-  <title>Archives: 2019 | David Lin&#39;s Blog</title>
+  <title>工作笔记-注册HANA高可用集群的源系统 | David Lin&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="David Lin&#39;s Blog">
-<meta property="og:url" content="https://linzhicheng.github.io/archives/2019/index.html">
+  <meta name="description" content="使用SSH登录到HANA备用主机的命令行界面  切换至 &amp;lt;sid&amp;gt;adm 用户  执行命令 hdbnsutil -sr-register --remoteHost=&amp;lt;主节点hostname&amp;gt; --remoteInstance=&amp;lt;instance no.&amp;gt; --replicationMode=&amp;lt;mode&amp;gt; --name=&amp;lt;主节点hostname">
+<meta name="keywords" content="工作笔记, SAP HANA, 高可用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="工作笔记-注册HANA高可用集群的源系统">
+<meta property="og:url" content="https://linzhicheng.github.io/2019/10/12/working-notes-register-hana-ha-source-system/index.html">
 <meta property="og:site_name" content="David Lin&#39;s Blog">
+<meta property="og:description" content="使用SSH登录到HANA备用主机的命令行界面  切换至 &amp;lt;sid&amp;gt;adm 用户  执行命令 hdbnsutil -sr-register --remoteHost=&amp;lt;主节点hostname&amp;gt; --remoteInstance=&amp;lt;instance no.&amp;gt; --replicationMode=&amp;lt;mode&amp;gt; --name=&amp;lt;主节点hostname">
 <meta property="og:locale" content="zh">
+<meta property="og:updated_time" content="2019-10-11T16:11:39.298Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="David Lin&#39;s Blog">
+<meta name="twitter:title" content="工作笔记-注册HANA高可用集群的源系统">
+<meta name="twitter:description" content="使用SSH登录到HANA备用主机的命令行界面  切换至 &amp;lt;sid&amp;gt;adm 用户  执行命令 hdbnsutil -sr-register --remoteHost=&amp;lt;主节点hostname&amp;gt; --remoteInstance=&amp;lt;instance no.&amp;gt; --replicationMode=&amp;lt;mode&amp;gt; --name=&amp;lt;主节点hostname">
   
     <link rel="alternate" href="/techblog/atom.xml" title="David Lin&#39;s Blog" type="application/atom+xml">
   
@@ -60,135 +65,64 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/techblog/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/techblog/2019/10/12/working-notes-register-hana-ha-source-system/" class="archive-article-date">
-  <time datetime="2019-10-11T16:04:07.000Z" itemprop="datePublished">Oct 12</time>
+        <section id="main"><article id="post-working-notes-register-hana-ha-source-system" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/techblog/2019/10/12/working-notes-register-hana-ha-source-system/" class="article-date">
+  <time datetime="2019-10-11T16:04:07.000Z" itemprop="datePublished">2019-10-12</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/techblog/2019/10/12/working-notes-register-hana-ha-source-system/">工作笔记-注册HANA高可用集群的源系统</a>
+    <h1 class="article-title" itemprop="name">
+      工作笔记-注册HANA高可用集群的源系统
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/techblog/2019/10/11/working-notes-create-jenkins-credentials-via-rest-api/" class="archive-article-date">
-  <time datetime="2019-10-11T15:48:30.000Z" itemprop="datePublished">Oct 11</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/techblog/2019/10/11/working-notes-create-jenkins-credentials-via-rest-api/">工作笔记-通过REST API创建Jenkins Credentials</a>
-    </h1>
-  
+        <ol>
+<li><p>使用SSH登录到HANA备用主机的命令行界面</p>
+</li>
+<li><p>切换至 <code>&lt;sid&gt;adm</code> 用户</p>
+</li>
+<li><p>执行命令 <code>hdbnsutil -sr-register --remoteHost=&lt;主节点hostname&gt; --remoteInstance=&lt;instance no.&gt; --replicationMode=&lt;mode&gt; --name=&lt;主节点hostname&gt; --operationMode=logreplay</code></p>
+</li>
+<li><p>等待命令执行完成</p>
+</li>
+</ol>
+<p>参考：<a href="https://help.aliyun.com/document_detail/112898.html" target="_blank" rel="noopener">https://help.aliyun.com/document_detail/112898.html</a></p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/techblog/2019/10/11/working-notes-docker-permission-denied/" class="archive-article-date">
-  <time datetime="2019-10-11T15:41:28.000Z" itemprop="datePublished">Oct 11</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/techblog/2019/10/11/working-notes-docker-permission-denied/">工作笔记-解决Linux下调用docker socket遇到permission denied的问题</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/techblog/2019/10/11/tips-get-hevc-codec-freely/" class="archive-article-date">
-  <time datetime="2019-10-11T15:36:58.000Z" itemprop="datePublished">Oct 11</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://linzhicheng.github.io/2019/10/12/working-notes-register-hana-ha-source-system/" data-id="ck1mbwy8b0006qwta0k6cmnfa" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/techblog/2019/10/11/tips-get-hevc-codec-freely/">小技巧-免费下载Windows 10 HEVC解码器</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/techblog/2019/09/03/working-notes-linux-ip-addr/" class="archive-article-date">
-  <time datetime="2019-09-03T00:15:14.000Z" itemprop="datePublished">Sep 3</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/techblog/2019/09/03/working-notes-linux-ip-addr/">工作笔记-Linux系统配置虚拟IP</a>
-    </h1>
-  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/techblog/tags/工作笔记-SAP-HANA-高可用/">工作笔记, SAP HANA, 高可用</a></li></ul>
 
-    </header>
+    </footer>
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/techblog/2019/08/22/hello-world/" class="archive-article-date">
-  <time datetime="2019-08-21T23:49:56.320Z" itemprop="datePublished">Aug 22</time>
-</a>
-      
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/techblog/2019/08/22/hello-world/">Hello World</a>
-    </h1>
   
+    <a href="/techblog/2019/10/11/working-notes-create-jenkins-credentials-via-rest-api/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">工作笔记-通过REST API创建Jenkins Credentials</div>
+    </a>
+  
+</nav>
 
-    </header>
-  </div>
+  
 </article>
-  
-  
-    </div></section>
-  
-
 
 </section>
         
